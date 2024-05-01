@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <link rel="stylesheet" href="clock.css"/>
+    
+</head>
+<body>
+   
+    
+    <div class="clock">
+       
+        <div class="container">
+            <div class="Date">
+                
+                <span id="date">00</span>
+                <span id="month">00</span>
+                <span id="year">0000</span>
+                
+                </div>
+            <div class="digitalclock">
+                
+                <span id="hrs">00</span>
+                <span>:</span>
+                <span id="min">00</span>
+                <span>:</span>
+
+                <span id="sec">00</span>
+                
+            </div>
+            <p class="text">Digital Clock</p>
+        </div>
+    </div>
+    
+<script>
+    
+    let hrs=document.getElementById("hrs");
+    let min=document.getElementById("min");
+    let sec=document.getElementById("sec");
+    let date=document.getElementById("date");
+    let month=document.getElementById("month");
+    let year=document.getElementById("year");
+
+    setInterval(()=>{
+        let currentTime=new Date();
+    //console.log(currentTime.getHours());
+        hrs.innerHTML = (currentTime.getHours()<10?"0":"")+currentTime.getHours();
+        min.innerHTML = (currentTime.getMinutes()<10?"0":"")+currentTime.getMinutes();
+        sec.innerHTML = (currentTime.getSeconds()<10?"0":"")+currentTime.getSeconds();
+       },1000)
+   
+     setInterval(()=>{
+        let d=new Date();
+        document.getElementById("date").innerHTML=d.getDate();
+        document.getElementById("month").innerHTML=d.getMonth()+1;
+        document.getElementById("year").innerHTML=d.getFullYear();
+     },1000)
+</script>
+</body>
+</html>
